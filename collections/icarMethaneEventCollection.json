@@ -1,5 +1,3 @@
-icarMethaneEventResource.json
-
 {
   "description": "Represents a collection of methane measuremens. Based on icarResourceCollection to provide paging etc.",
 
