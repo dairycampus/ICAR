@@ -1,99 +1,39 @@
-[
-   {
-     "id": "string",
-     "errors": [
-       {
-         "id": "string",
-         "status": 0,
-         "code": "string",
-         "title": "string",
-         "detail": "string",
-         "meta": {}
-       }
-     ],
-     "data": [
-       {
-         "@self": "string",
-         "meta": {
-           "source": "string",
-           "sourceId": "string",
-           "modified": "2021-12-07T13:38:14.520Z",
-           "created": "2021-12-07T13:38:14.520Z",
-           "creator": "string",
-           "validFrom": "2021-12-07T13:38:14.520Z",
-           "validTo": "2021-12-07T13:38:14.520Z"
-         },
-         "id": "string",
-         "animal": {
-           "id": "string",
-           "scheme": "string"
-         },
-         "eventStartDateTime": "2021-12-07T13:38:14.520Z",
-         "eventEndDateTime": "2021-12-07T13:38:14.520Z",
-         "CO2": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         },
-         "CH4": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         },    
-         "O2": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         },        
-         "H2": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         },  
-         "airflow": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         },                   
-         "windsp": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         },                  
-         "airflowcf": {
-           "measurement": 0,
-           "units": "KGM",
-           "method": "Greenfeed",
-           "resolution": 0
-         }, 
- 
-         "WindSp": {
-           "measurement": 0,
-           "units": "?",
-           "method": "Greenfeed",
-           "resolution": 0
-         },
-         "WindDir": {
-           "measurement": 0,
-           "units": "?",
-           "method": "Greenfeed",
-           "resolution": 0
-         },                                                                         
-         "device": {
-           "@context": "string",
-           "@id": "string",
-           "@type": "Link",
-           "model": "string",
-           "serial": "string"
-         },
-         "timeOffMeasurement": 0
-       }
-     ]
-   }
- ]
+{
+  "description": "Event for recording a feed intake",
+
+  "allOf": [{
+      "$ref": "../resources/icarEventCoreResource.json"
+    },
+    {
+      "type": "object",
+
+      "required": [
+        "eventStartDateTime",
+        "eventEndDateTime",
+
+      ],
+
+      "properties": {
+        "eventStartDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The moment the feeding started"
+        },
+        "eventEndDateTime": {
+          "$ref": "../types/icarDateTimeType.json",
+          "description": "The moment the feeding started"
+        },          
+        "methaneCharacteristics": {
+          "type": "array",
+          "items": {
+            "$ref": "../types/icarMethaneCharacteristicsType.json"
+          }
+        },         
+        "device": {
+          "$ref": "../types/icarDeviceReferenceType.json",
+          "description": "Optional information about the device used for the feeding."
+        }
+      }
+    }
+  ]
+}
+

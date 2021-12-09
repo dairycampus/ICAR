@@ -1,0 +1,24 @@
+{
+  "description": "Characteristics of the methane measured.",
+
+  "type": "object",
+
+  "required": [
+    "characteristic",
+    "value"
+  ],
+  "properties": {
+    "characteristic": {
+      "type": "string",
+      "description": "Methane measurements Characteristics Codes and values: O2 H2 CH4  CO2 airflow airflowcf WindSp WindDir"
+    },
+    "value": {
+      "type": "float",
+      "description": "the value of the characteristic measured"
+    },
+    "unit": {
+      "type": "string",
+      "description": "the defaults are described above, only use this field when differed from the default. Use UN/CEFACT codes."
+    },
+  }
+}
